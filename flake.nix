@@ -13,11 +13,15 @@
 	{
 	devShells.${system}.default = pkgs.mkShell {
 		buildInputs = with pkgs; [
-			# C Programming Language
+			# C/C++ Programming Language
 			gcc
 			gnumake
+			cmake
 			gdb
 			valgrind
+			clang
+			clang-tools
+			llvm
 			
 			# Python Programming Language
 			(python3.withPackages (ps: with ps; [
@@ -30,9 +34,12 @@
 			]))
 
 			# Shell (Bash)
+			bash
 			bashInteractive
 			shellcheck
 			shfmt
+			coreutils
+
 		 ];
 		
 		shellHook = ''
